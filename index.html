@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Kasir Toko</title>
+
+    <!-- LINK KE CSS EXTERNAL -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- CSS INTERNAL -->
+    <style>
+      .hasil-box {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e8f8f5;
+        border-left: 5px solid #2ecc71;
+        border-radius: 4px;
+      }
+      .text-bold {
+        font-weight: bold;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML SYNTAX -->
+    <div class="kalkulator-box">
+      <!-- CSS INLINE (Menggunakan atribut style langsung di tag) -->
+      <h3 style="border-bottom: 2px solid #2ecc71; padding-bottom: 10px">Kasir Toko Digital</h3>
+
+      <div class="input-group">
+        <label for="harga">Harga Barang (Rp):</label>
+        <input type="number" id="harga" />
+      </div>
+
+      <div class="input-group">
+        <label for="jumlah">Jumlah Beli:</label>
+        <input type="number" id="jumlah" />
+      </div>
+
+      <button onclick="hitungTotal()">Hitung Total Belanja</button>
+
+      <!-- Tempat Output JavaScript -->
+      <div class="hasil-box">
+        <p>Total Normal: <span id="outTotal" class="text-bold">Rp 0</span></p>
+        <p>Dapat Diskon? <span id="outStatus" class="text-bold">-</span></p>
+        <p>Potongan Harga: <span id="outDiskon" class="text-bold">Rp 0</span></p>
+        <hr />
+        <p style="font-size: 18px">Total Bayar: <span id="outBayar" style="color: #e74c3c; font-weight: bold">Rp 0</span></p>
+      </div>
+    </div>
+
+    <!-- JAVASCRIPT TAG -->
+    <script>
+      function hitungTotal() {
+        // JAVASCRIPT VARIABLE & INPUT INTERACTION
+        let hargaBarang = Number(document.getElementById("harga").value);
+        let jumlahBeli = Number(document.getElementById("jumlah").value);
+
+        let diskon = 0;
+        let statusDiskon = "Tidak";
+
+        // 1. OPERATOR ARITMATIKA (*)
+        // Mengalikan harga dengan jumlah untuk mendapat total kotor
+        let totalBelanja = hargaBarang * jumlahBeli;
+
+        // 2. OPERATOR PERBANDINGAN (>=)
+        // Mengecek apakah total belanja mencapai atau lebih dari Rp 100.000
+        if (totalBelanja >= 200000) {
+          statusDiskon = "Ya (25%)";
+
+          // OPERATOR ARITMATIKA (*) untuk menghitung nilai potongan 25%
+          diskon = totalBelanja * 0.25;
+        } else if (totalBelanja >= 100000) {
+          statusDiskon = "Ya (10%)";
+
+          // OPERATOR ARITMATIKA (*) untuk menghitung nilai potongan 10%
+          diskon = totalBelanja * 0.1;
+        }
+
+        // 3. OPERATOR PENUGASAN (= dan -=)
+        // Menginisialisasi nilai awal total bayar
+        let totalBayar = totalBelanja;
+
+        // Mengurangi totalBayar dengan diskon secara langsung menggunakan penugasan pengurangan
+        totalBayar -= diskon;
+
+        // JAVASCRIPT OUTPUT (Menampilkan hasil ke elemen HTML)
+        document.getElementById("outTotal").innerText = "Rp " + totalBelanja;
+        document.getElementById("outStatus").innerText = statusDiskon;
+        document.getElementById("outDiskon").innerText = "Rp " + diskon;
+        document.getElementById("outBayar").innerText = "Rp " + totalBayar;
+      }
+    </script>
+  </body>
+</html>
