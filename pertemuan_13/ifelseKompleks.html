@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IF ELSE Kompleks</title>
+</head>
+<body>
+
+    <h2>Penentuan Nilai Mahasiswa</h2>
+
+    <input type="number" id="nilai" placeholder="Masukkan nilai">
+    <button onclick="cekNilai()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function cekNilai() {
+            let nilai = document.getElementById("nilai").value;
+            let hasil = "";
+
+            if (nilai >= 90 && nilai <= 100) {
+                hasil = "Grade A";
+            } 
+            else if (nilai >= 80) {
+                hasil = "Grade B";
+            } 
+            else if (nilai >= 70) {
+                hasil = "Grade C";
+            } 
+            else if (nilai >= 60) {
+                hasil = "Grade D";
+            } 
+            else if (nilai >= 0) {
+                hasil = "Grade E";
+            } 
+            else {
+                hasil = "Nilai tidak valid";
+            }
+
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Kompleks</title>
+</head>
+<body>
+
+    <h2>Hitung Luas dan Keliling Persegi Panjang</h2>
+
+    <input type="number" id="panjang" placeholder="Panjang">
+    <input type="number" id="lebar" placeholder="Lebar">
+
+    <button onclick="hitung()">Hitung</button>
+
+    <p id="output"></p>
+
+    <script>
+
+        function luas(p, l) {
+            return p * l;
+        }
+
+        function keliling(p, l) {
+            return 2 * (p + l);
+        }
+
+        function hitung() {
+            let panjang = parseInt(document.getElementById("panjang").value);
+            let lebar = parseInt(document.getElementById("lebar").value);
+
+            let hasilLuas = luas(panjang, lebar);
+            let hasilKeliling = keliling(panjang, lebar);
+
+            document.getElementById("output").innerHTML =
+                "Luas = " + hasilLuas + "<br>" +
+                "Keliling = " + hasilKeliling;
+        }
+
+    </script>
+
+</body>
+</html>
