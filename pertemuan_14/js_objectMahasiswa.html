@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    let mahasiswa = {
+    nim: "231011450611",
+    nama: "Fikri Ariansyah",
+    jurusan: "Teknik Informatika",
+    fakultas: "Fakultas Ilmu Komputer"
+};
+console.log(mahasiswa);
+
+    //akses object
+    console.log(mahasiswa.nim);
+    console.log(mahasiswa.nama);
+    console.log(mahasiswa.jurusan);
+    console.log(mahasiswa.fakultas);
+
+    //object dengan method
+let mahasiswa2 = {
+    nim: "231011450611",
+    nama: "Salwah",
+    jurusan: "Teknik Informatika",
+    fakultas: "Fakultas Ilmu Komputer",
+    getInfo: function() {
+        return `NIM: ${this.nim}, Nama: ${this.nama}, Jurusan: ${this.jurusan}, Fakultas: ${this.fakultas}`;
+    }
+};
+console.log(mahasiswa2.getInfo());
+
+    //array object 5 data mahasiswa
+let mahasiswaArray = [
+    {
+        nim: "231011450611",
+        nama: "Fikri Ariansyah",
+        jurusan: "Teknik Informatika",
+        fakultas: "Fakultas Ilmu Komputer"
+    },
+    {
+        nim: "231011450612",
+        nama: "Salwah",
+        jurusan: "Teknik Informatika",
+        fakultas: "Fakultas Ilmu Komputer"
+    },
+    {
+        nim: "231011450613",
+        nama: "Rizky",
+        jurusan: "Teknik Informatika",
+        fakultas: "Fakultas Ilmu Komputer"
+    },
+    {
+        nim: "231011450614",
+        nama: "Dewi",
+        jurusan: "Teknik Informatika",
+        fakultas: "Fakultas Ilmu Komputer"
+    },
+    {
+        nim: "231011450615",
+        nama: "Andi",
+        jurusan: "Teknik Informatika",
+        fakultas: "Fakultas Ilmu Komputer"
+    }
+];
+
+console.log(mahasiswaArray);
+   </script>
+</body>
+</html>
